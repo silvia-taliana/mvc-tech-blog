@@ -15,7 +15,7 @@ router.get('/', withAuth, async (req, res) => {
         res.render('homepage', {
             users,
             // Pass the logged in flag to the template
-            logged_in: req.session.logged_in,
+            loggedIn: req.session.loggedIn,
         });
     } catch (err) {
         res.status(500).json(err);
@@ -24,7 +24,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
     // If a session exists, redirect the request to the homepage
-    if (req.session.logged_in) {
+    if (req.session.loggedIn) {
         res.redirect('/');
         return;
     }

@@ -5,7 +5,16 @@ h1 {
     padding: 10px;
 }
 
-.container {
-    margin: 50px;
-    padding: 20px;
+/* .container {
+
+} */
+
+.loginBox, 
+.signupBox {
+    max-width: 50%;
+    min-width: 260px;
+    border-style: solid;
+    float: left;
+    margin: 5%;
+    padding: 40px;
 }

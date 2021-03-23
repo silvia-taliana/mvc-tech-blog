@@ -1,1 +1,16 @@
 <h1>Welcome to your dashboard</h1>
+
+<h2>Your Blog Posts</h2>
+
+{{#each user.blogPosts as |post|}}
+<div class="card">
+    <div class="card-header">
+        <p>Created by you on {{format_date date_created}}</p>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{post.post}}</p>
+        <a href="/blogPost/{{post.id}}" class="btn btn-primary">View Post</a>
+    </div>
+</div>
+{{/each}}

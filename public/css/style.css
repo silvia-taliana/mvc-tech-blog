@@ -33,3 +33,10 @@ h1 {
 .card {
     margin: 10px;
 }
+
+.newComment {
+    border-style: solid;
+    border-radius: 20px;
+    padding: 20px;
+    float: left;
+}

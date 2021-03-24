@@ -5,10 +5,10 @@
     <div class="card-body">
         <h5 class="card-title">{{fullPost.title}}</h5>
         <p class="card-text">{{fullPost.post}}</p>
-        <a href="#" class="btn btn-primary">Add Comment</a>
     </div>
 </div>
 
+<h3>Comments</h3>
 {{#each fullPost.comments as |comment|}}
 <div class="card">
     <div class="card-header">
@@ -20,3 +20,17 @@
     </div>
 </div>
 {{/each}}
+<br>
+<div class="newComment">
+    <h3>Add a comment</h3>
+    <br>
+    <form class="form newComment-form">
+        <div class="form-group">
+            <textarea name="blogPost" id="new-comment" cols="30" rows="3"></textarea>
+        </div>
+        <br>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit" id="addComment">Add Comment</button>
+        </div>
+    </form>
+</div>

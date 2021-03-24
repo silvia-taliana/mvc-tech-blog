@@ -1,3 +1,6 @@
+<br>
+<h2>Welcome to The Tech Blog! Created by coders for coders</h2>
+<br>
 {{#each blogPosts as |blog|}}
 <div class="card">
     <div class="card-header">
@@ -5,7 +8,6 @@
     </div>
     <div class="card-body">
         <h5 class="card-title">{{blog.title}}</h5>
-        <p class="card-text">{{blog.post}}</p>
         <a href="/blogPost/{{blog.id}}" class="btn btn-primary">View Post</a>
     </div>
 </div>

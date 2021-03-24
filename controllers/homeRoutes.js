@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/blogPost/:id', async (req, res) => {
+router.get('/blogPost/:id', withAuth, async (req, res) => {
     try {
         const blogPostData = await BlogPost.findByPk(req.params.id, {
             include: [
@@ -75,26 +75,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-// Prevent non logged in users from viewing the homepage
-// router.get('/', withAuth, async (req, res) => {
-//     try {
-//         const userData = await User.findAll({
-//             attributes: { exclude: ['password'] },
-//             order: [['name', 'ASC']],
-//         });
-
-//         const users = userData.map((blogPost) => blogPost.get({ plain: true }));
-
-//         res.render('homepage', {
-//             users,
-//             // Pass the logged in flag to the template
-//             loggedIn: req.session.loggedIn,
-//         });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
 
 router.get('/login', (req, res) => {
     // If a session exists, redirect the request to the homepage

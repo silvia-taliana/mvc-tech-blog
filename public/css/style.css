@@ -22,3 +22,14 @@ h1 {
     margin: 5%;
     padding: 40px;
 }
+
+.newPost {
+    border-style: solid;
+    border-radius: 20px;
+    padding: 20px;
+    float: left;
+}
+
+.card {
+    margin: 10px;
+}

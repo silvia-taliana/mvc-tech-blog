@@ -2,7 +2,7 @@
 
 <h2>You can view, edit and create your blog posts here</h2>
 <br>
-
+{{!-- Getting all the blog posts created by the user currently logged in --}}
 {{#each user.blogPosts as |post|}}
 <div class="card">
     <div class="card-header">
@@ -12,11 +12,13 @@
         <h5 class="card-title">{{post.title}}</h5>
         <a href="/blogPost/{{post.id}}" class="btn btn-primary">View Post</a>
         <a href="#" class="btn btn-primary">Edit Post</a>
-        <a href="#" class="btn btn-primary">Delete Post</a>
+        <a href="#" class="btn btn-primary" id="deletePost" data-id="{{post.id}}">Delete Post</a>
     </div>
 </div>
 {{/each}}
 <br>
+
+{{!-- form to create a new blog post --}}
 <div class="newPost">
     <h2>Create a new blog post here</h2>
     <br>
@@ -36,3 +38,5 @@
         </div>
     </form>
 </div>
+
+<script src="/js/delete.js"></script>

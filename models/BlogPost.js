@@ -29,7 +29,7 @@ BlogPost.init(
             allowNull: true,
             references: {
                 model: 'user',
-                key: 'user_id',
+                key: 'id',
             },
         },
     },

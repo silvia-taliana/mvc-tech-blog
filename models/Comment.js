@@ -18,10 +18,23 @@ Comment.init(
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: true,
+            references: {
+                model: 'user',
+                key: 'user_id',
+            },
         },
         post_id: {
             type: DataTypes.INTEGER,
             allowNull: true,
+            references: {
+                model: 'blogPost',
+                key: 'post_id',
+            },
+        },
+        date_created: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
         },
     },
     {

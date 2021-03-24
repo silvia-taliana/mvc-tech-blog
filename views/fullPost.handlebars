@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <p>Created by you on {{format_date fullPost.date_created}}</p>
+        <p>Created by {{fullPost.user.name}} on {{format_date fullPost.date_created}}</p>
     </div>
     <div class="card-body">
         <h5 class="card-title">{{fullPost.title}}</h5>
@@ -9,12 +9,14 @@
     </div>
 </div>
 
+{{#each fullPost.comments as |comment|}}
 <div class="card">
     <div class="card-header">
-        <p>(user) commented on (date)</p>
+        <p>{{comment.commenter.name}} commented on {{format_date comment.createdAt}}</p>
     </div>
     <div class="card-body">
-        <p class="card-text">Comment</p>
+        <p class="card-text">{{comment.comment}}</p>
         <a href="#" class="btn btn-primary">Delete Comment</a>
     </div>
 </div>
+{{/each}}

@@ -17,6 +17,8 @@ router.get('/', async (req, res) => {
 
         // Serialize data so the template can read it
         const blogPosts = blogPostData.map((blogPost) => blogPost.get({ plain: true }));
+
+        console.log(blogPosts);
         // Pass serialized data and session flag into template
         res.render('homepage', {
             blogPosts,
@@ -30,12 +32,12 @@ router.get('/', async (req, res) => {
 // getting blog post by id and displaying on the full post page
 router.get('/blogPost/:id', withAuth, async (req, res) => {
     try {
+        console.log(req.params.id);
         const blogPostData = await BlogPost.findByPk(req.params.id, {
             include: [
                 {
                     model: Comment,
-                    required: true,
-                    attributes: ['id', 'comment', 'user_id', 'createdAt'],
+                    attributes: ['id', 'comment', 'user_id', 'createdAt', 'post_id'],
                     include: ['commenter'],
                 },
                 {
@@ -47,13 +49,26 @@ router.get('/blogPost/:id', withAuth, async (req, res) => {
 
         let fullPost = blogPostData.get({ plain: true });
         console.log(fullPost);
+
         res.render('fullPost', {
             fullPost,
             loggedIn: req.session.loggedIn
         });
+
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
+});
+
+// displaying the edit post page
+router.get('/updatePost', (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/login');
+        return;
+    }
+
+    res.render('updatePost');
 });
 
 // getting only blog posts created by the user logged in and displaying on their dashboard

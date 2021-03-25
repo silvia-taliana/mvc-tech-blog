@@ -16,7 +16,8 @@
     </div>
     <div class="card-body">
         <p class="card-text">{{comment.comment}}</p>
-        <a href="#" class="btn btn-primary" id="deleteComment" data-id="{{comment.id}}">Delete Comment</a>
+        <a href="#" class="btn btn-primary" key="{{comment.post_id}}" id="deleteComment" data-id="{{comment.id}}">Delete
+            Comment</a>
     </div>
 </div>
 {{/each}}
@@ -24,13 +25,13 @@
 <div class=" newComment">
     <h3>Add a comment</h3>
     <br>
-    <form class="form newComment-form" data-id="{{fullPost.id}}">
+    <form class="form newComment-form">
         <div class="form-group">
             <textarea name="blogPost" id="new-comment" cols="30" rows="3"></textarea>
         </div>
         <br>
         <div class="form-group">
-            <button class="btn btn-primary" type="submit" id="addComment">Add Comment</button>
+            <button class="btn btn-primary" type="submit" id="addComment" data-id="{{fullPost.id}}">Add Comment</button>
         </div>
     </form>
 </div>

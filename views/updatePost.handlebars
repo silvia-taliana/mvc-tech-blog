@@ -1,0 +1,23 @@
+{{!-- form to edit a blog post --}}
+<div class="updatePost">
+    <h2>Edit your blog post here</h2>
+    <br>
+    <form class="form updatePost-form">
+        <div class="form-group">
+            <label for="update-title">Title:</label><br>
+            <input class="form-input" type="text" id="update-title" placeholder="{{user.blogPosts.title}}" />
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="update-post">Post:</label><br>
+            <textarea name="blogPost" id="update-post" cols="30" rows="10">{{user.blogPosts.post}}</textarea>
+        </div>
+        <br>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit" id="editPost" data-id="{{this.id}}">Edit
+                Post</button>
+        </div>
+    </form>
+</div>
+
+<script src=" /js/updatePost.js"></script>

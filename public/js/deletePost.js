@@ -16,4 +16,3 @@ const deletePost = async (event) => {
 };
 
 document.querySelector('#deletePost').addEventListener('click', deletePost);
-

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { BlogPost, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
+// getting all blog posts and displaying on homepage
 router.get('/', async (req, res) => {
     try {
         // Get all blog posts and JOIN with user data
@@ -16,7 +17,6 @@ router.get('/', async (req, res) => {
 
         // Serialize data so the template can read it
         const blogPosts = blogPostData.map((blogPost) => blogPost.get({ plain: true }));
-        console.log(blogPosts);
         // Pass serialized data and session flag into template
         res.render('homepage', {
             blogPosts,
@@ -27,6 +27,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+// getting blog post by id and displaying on the full post page
 router.get('/blogPost/:id', withAuth, async (req, res) => {
     try {
         const blogPostData = await BlogPost.findByPk(req.params.id, {
@@ -34,7 +35,7 @@ router.get('/blogPost/:id', withAuth, async (req, res) => {
                 {
                     model: Comment,
                     required: true,
-                    attributes: ['comment', 'user_id', 'createdAt'],
+                    attributes: ['id', 'comment', 'user_id', 'createdAt'],
                     include: ['commenter'],
                 },
                 {
@@ -55,7 +56,7 @@ router.get('/blogPost/:id', withAuth, async (req, res) => {
     }
 });
 
-// Use withAuth middleware to prevent access to route
+// getting only blog posts created by the user logged in and displaying on their dashboard
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
         // Find the logged in user based on the session ID
@@ -76,8 +77,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
     }
 });
 
+// directing user to the homepage if logged in
 router.get('/login', (req, res) => {
-    // If a session exists, redirect the request to the homepage
     if (req.session.loggedIn) {
         res.redirect('/');
         return;

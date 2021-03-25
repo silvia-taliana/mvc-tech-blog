@@ -16,12 +16,12 @@
     </div>
     <div class="card-body">
         <p class="card-text">{{comment.comment}}</p>
-        <a href="#" class="btn btn-primary">Delete Comment</a>
+        <a href="#" class="btn btn-primary" id="deleteComment" data-id="{{comment.id}}">Delete Comment</a>
     </div>
 </div>
 {{/each}}
 <br>
-<div class="newComment">
+<div class=" newComment">
     <h3>Add a comment</h3>
     <br>
     <form class="form newComment-form">
@@ -34,3 +34,5 @@
         </div>
     </form>
 </div>
+
+<script src="/js/deleteComment.js"></script>

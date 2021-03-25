@@ -24,7 +24,7 @@
 <div class=" newComment">
     <h3>Add a comment</h3>
     <br>
-    <form class="form newComment-form">
+    <form class="form newComment-form" data-id="{{fullPost.id}}">
         <div class="form-group">
             <textarea name="blogPost" id="new-comment" cols="30" rows="3"></textarea>
         </div>
@@ -35,4 +35,5 @@
     </form>
 </div>
 
+<script src="/js/addComment.js"></script>
 <script src="/js/deleteComment.js"></script>

@@ -3,7 +3,7 @@
 ![badge](https://img.shields.io/badge/License-MIT-Green)
 
 ## Description
-The aim of this project was to create a blog website where users could log in, view or write blog posts, comment on other users blogs and edit or delete their own posts. To view this project, please click [here](). 
+The aim of this project was to create a blog website where users could log in, view or write blog posts, comment on other users blogs and edit or delete their own posts. To view this project, please click [here](https://damp-chamber-65697.herokuapp.com/). 
 
 ## Table of Contents 
 
